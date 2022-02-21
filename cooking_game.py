@@ -1,43 +1,4 @@
-print("Loading all needed things, please show patient :)")
-print("...")
-import time, os, getpass
-from about import *
 
-
-def clearConsole():
-    command = 'clear'
-    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
-        command = 'cls'
-    os.system(command)
-
-
-username = ""
-water_enough = False
-potato_enough = False
-carrot_enough = False
-meat_enough = False
-oil_enough = False
-flour_enough = False
-use_username = True
-coins = 0
-water = 120  # deciliters
-lasagna = 0
-baked_lasagna = 0
-potato = 1000  # grams
-carrot = 12  # 12 carrots
-meat_packages = 0  # going to be 20 meat packages
-meat_achivement = False
-soup = 0
-soup_with_meat = 0
-bread = 0
-level = 0
-xp = 0
-xp_need = 100
-xp_rest = 0
-bread_achivement = False
-flour = 5000  # grams
-oil = 100  # deciliters
-time.sleep(2)
 print("Hello and welcome to Cooking Game! v.0.6.4! New: Typo Fixing (more info in 'log' command)")
 input("press Enter to continue...")
 while use_username:

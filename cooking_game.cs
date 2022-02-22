@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading;
 
 
-namespace cookinggamecsharp 
+namespace cooking_game_csharp 
 {
-    class cookinggame {         
+    class cooking_game {         
         static void Main(string[] args)
         {
             Console.WriteLine("Loading all needed things, please show patient :)");

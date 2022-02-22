@@ -1,19 +1,4 @@
 
-print("Hello and welcome to Cooking Game! v.0.6.4! New: Typo Fixing (more info in 'log' command)")
-input("press Enter to continue...")
-while use_username:
-    print("\n\nWhat is your name or in this case nickname?")
-    username = input("My nickname is... ")
-    agree = input(
-        "\n\nDo you want to use this username(write 1), PC username(write 2), or change this username(write 3)? ")
-    if agree == "1":
-        use_username = False
-    elif agree == "2":
-        username = getpass.getuser()
-        use_username = False
-    elif agree == "3":
-        continue
-print(f"Hello {username}. Nice, now can we begin to cook!")
 print("Okay, We're ready!")
 input("press Enter to continue...")
 print("Lets begin with making some soup!")

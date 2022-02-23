@@ -1,64 +1,6 @@
 
-print("Okay, We're ready!")
-input("press Enter to continue...")
-print("Lets begin with making some soup!")
-input("press Enter to continue...")
-print("In this game You used values of ingredients, meaning that you can't make very much food.")
-input("press Enter to continue...")
-print("But we should have it enough to make some Soup!")
-input("press Enter to continue...")
 
-while True:
-    if xp == 2:
-        print("You achieved 'Bread Achivement'! You can now make bread!")
-        bread_achivement = True
-    if xp > xp_need:
-        xp_rest = xp - xp_need
-        xp = xp_rest
-        level += 1
-        xp_rest = 0
-        xp_need *= 1.15
-        print("")
-        print(f"- New level achieved! - Level {level}, XP {xp} / {xp_need}")
-    if water < 0:
-        water = 0
-    if potato < 0:
-        potato = 0
-    if carrot < 0:
-        carrot = 0
-    if coins < 0:
-        coins = 0
-    if flour < 0:
-        flour = 0
-    if oil < 0:
-        oil = 0
-    if meat_packages < 0:
-        meat_packages = 0
-    if not meat_achivement:
-        if soup == 2:
-            print("")
-            print("")
-            print("")
-            meat_achivement = True
-            print(
-                "You got Meat achievement, which means you can have meat in inventory, and you're able to make new Soup type!")
-            meat_packages += 20
-            print("")
-            print("")
-            print("")
-    print("")
-    print("Hello, " + username + "! What do you want to do now?")
-    print("List of Commands:      ")
-    print("                   Recipes ( Write 'recipe' ) ")
-    print("                   Inventory ( Write 'inventory' )")
-    print("                   Make something ( Write 'make something' )")
-    print("                   Market(Sell and Buy food) ( Write 'market' )")
-    print("                   Boosts (Buy and list your boosts!) ( Write 'boosts' )")
-    print("                   Info ( Write 'info' )")
-    print("                   Update Log ( Write 'update' or 'log' )")
-    print("                   Exit ( Write 'exit' ) ")
-    command = input("                   ")
-    if "recipe" in command:
+"""    if "recipe" in command:
         clearConsole()
         print("                   Current Recipes:")
         print("                   ")
@@ -366,7 +308,7 @@ while True:
         clearConsole()
         print("\n\nBoosts!")
         print(" Currently under construction! Come back later!")
-        """
+        
         print("\n List of Boosts commands:")
         print("                          List")
         print("                          Buy")
@@ -381,7 +323,7 @@ while True:
         if coins != 0:
             if "buy" in boosts_commands:
         else
-        """
+        
     elif "info" in command:
         clearConsole()
         info()
@@ -399,3 +341,4 @@ while True:
 
     else:
         continue
+"""

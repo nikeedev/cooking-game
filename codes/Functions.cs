@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading;
 
 
-namespace cooking_game_csharp
+namespace cooking_game_csharp.codes
 {
-    public class about {
-        public void info() {
+    public class Functions {
+        public static void info() {
             Console.WriteLine("Cooking Game®");
             Console.WriteLine("Made by nikeedev(Nikita)");
             Console.WriteLine("Copyright ©2022");
@@ -26,7 +26,7 @@ namespace cooking_game_csharp
         }
 
 
-        public void update() {
+        public static void update() {
             Console.WriteLine("Update: Typos fixing");
             Console.WriteLine("");
             Console.WriteLine("Version: v.0.6.4");
@@ -38,6 +38,10 @@ namespace cooking_game_csharp
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
+        }
+
+        public static void clearConsole() {
+                Console.Clear();
         }
     }
 }

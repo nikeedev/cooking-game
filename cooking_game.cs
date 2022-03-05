@@ -7,7 +7,7 @@ using cooking_game_csharp.codes;
 
 namespace cooking_game_csharp 
 {
-    class cooking_game {         
+    class cooking_game {
         static void Main(string[] args)
         {
             Console.WriteLine("Loading all needed things, please wait patient :)");
@@ -364,6 +364,205 @@ namespace cooking_game_csharp
 
                     else { 
                         continue;
+                    }
+                }
+
+                if ("market" == command)
+                {
+                    Functions.clearConsole();
+                    Console.WriteLine("Welcome to The Market!");
+                    Task.Delay(2);
+                    Console.WriteLine("Here, can you buy and sell things, such like food.");
+                    Task.Delay(3);
+                    Console.WriteLine("And here it is!");
+                    Task.Delay(2);
+                    Console.WriteLine("List of Market commands:");
+                    Console.WriteLine("                          Sell");
+                    Console.WriteLine("                          Buy");
+                    Console.WriteLine("                          Exit");
+                    string market_commands = Console.ReadLine();
+                    if ("exit" == market_commands)
+                    {
+                        continue;
+                    }
+                    if ("sell" == market_commands)
+                    {
+                        if (soup < 0 || soup_with_meat < 0 || bread < 0)
+                        {
+                            Console.WriteLine("You don't have anything to sell, redirecting back in 3 sec");
+                            Task.Delay(3);
+                            continue;
+                        }
+                        else if (soup > 0 || soup_with_meat > 0)
+                        {
+                            Console.WriteLine("You can sell only food you made.");
+                            Task.Delay(2);
+                            Console.WriteLine("Prices on foods change after time(after updates), so be in right time to get much coins!");
+                            Task.Delay(3);
+                            Console.WriteLine("You can sell ", soup, " soup.");
+                            if (meat_achivement)
+                            {
+                                Console.WriteLine("You can sell ", soup_with_meat, " soup with meatballs.");
+                            }
+                            if (bread_achivement)
+                            {
+                                Console.WriteLine("You can sell ", bread, " bread.");
+                            }
+
+                            Task.Delay(2);
+                            Console.WriteLine("If you want to sell write: name of food you want to sell.");
+                            string sell_command = Console.ReadLine();
+                            if ("soup" == sell_command)
+                            {
+                                Console.WriteLine("One soup could be sold for: 25 coins");
+                                Console.WriteLine(
+                                    "Want to sell 1 soup for current price? If not, you will be redirected back to main commands!");
+                                Console.WriteLine("Write yes or no...");
+                                string sell_answer = Console.ReadLine();
+                                if ("yes" == sell_answer)
+                                {
+                                    Console.WriteLine("Selling soup!");
+                                    soup -= 1;
+                                    Task.Delay(2);
+                                    Console.WriteLine("You got 25 coins");
+                                    coins += 25;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Aborting sell...");
+                                }
+                            }
+                            if (meat_achivement)
+                            {
+                                if ("soup with meatballs" == sell_command)
+                                {
+                                    Console.WriteLine("One soup with meatballs could be sold for: 30 coins");
+                                    Console.WriteLine("Want to sell 1 soup with meatballs for current price?");
+                                    Console.WriteLine("If not, you will be redirected back to main commands!");
+                                    Console.WriteLine("Write yes or no...");
+                                    string sell_answer = Console.ReadLine();
+                                    if ("yes" == sell_answer)
+                                    {
+                                        Console.WriteLine("Selling soup!");
+                                        soup_with_meat -= 1;
+                                        Task.Delay(2);
+                                        Console.WriteLine("You got 30 coins");
+                                        coins += 30;
+                                    }
+                                }
+                            }
+                            if (bread_achivement)
+                            {
+                                if ("bread" == sell_command)
+                                {
+                                    Console.WriteLine("One bread could be sold for: 35 coins");
+                                    Console.WriteLine("Want to sell 1 bread for current price?");
+                                    Console.WriteLine("If not, you will be redirected back to main commands!");
+                                    Console.WriteLine("Write yes or no...");
+                                    string sell_answer = Console.ReadLine();
+                                    if ("yes" == sell_answer)
+                                    {
+                                        Console.WriteLine("Selling bread!");
+                                        bread -= 1;
+                                        Task.Delay(2);
+                                        Console.WriteLine("You got 30 coins");
+                                        coins += 30;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if ("buy" == market_commands)
+                    {
+                        if (coins == 0)
+                        {
+                            Console.WriteLine("You don't have enough money! Leaving Market in 2 sec.");
+                            Task.Delay(2);
+                            continue;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You can buy vegetables, water and much other!");
+                            Task.Delay(2);
+                            Console.WriteLine("Here is what you can buy:");
+                            Console.WriteLine("Water, 20 deciliters: 10 coins");
+                            Console.WriteLine("Potato, 400 grams: 5 coins");
+                            Console.WriteLine("Carrots, 6 sticks: 7 coins");
+                            if (bread_achivement)
+                            {
+                                Console.WriteLine("Flour, 200 grams: 8 coins");
+                                Console.WriteLine("Oil, 12 deciliters: 10: coins");
+                            }
+                            if (meat_achivement)
+                            {
+                                Console.WriteLine("Meat, 4 packages: 5 coins");
+                                Console.WriteLine("Lasagna, 1: 150 coins(being rich to buy this recommended)");
+                                Task.Delay(3);
+                                Console.WriteLine("Write in commands below what you want to buy:");
+                                Console.WriteLine("Water");
+                                Console.WriteLine("Potato");
+                                Console.WriteLine("Carrot");
+                                Console.WriteLine("Lasagna");
+                                if (bread_achivement)
+                                {
+                                    Console.WriteLine("Flour");
+                                    Console.WriteLine("Oil");
+                                }
+                                if (meat_achivement)
+                                {
+                                    Console.WriteLine("Meat");
+                                }
+                                string buy_commands = Console.ReadLine();
+                                if ("water" == buy_commands)
+                                {
+                                    Console.WriteLine("Adding 20 deciliters, minus 10 coins");
+                                    water += 20;
+                                    coins -= 10;
+                                }
+                                else if ("potato" == buy_commands)
+                                {
+                                    Console.WriteLine("Adding 400 grams potatoes, minus 5 coins");
+                                    potato += 400;
+                                    coins -= 5;
+                                }
+                                else if ("carrot" == buy_commands)
+                                {
+                                    Console.WriteLine("Adding 6 carrots, minus 7 coins");
+                                    carrot += 6;
+                                    coins -= 7;
+                                }
+                                if (meat_achivement)
+                                {
+                                    if ("meat" == buy_commands)
+                                    {
+                                        Console.WriteLine("Adding 4 meat packages, minus 5 coins");
+                                        meat_packages += 4;
+                                        coins -= 5;
+                                    }
+                                }
+                                else if ("lasagna" == buy_commands)
+                                {
+                                    Console.WriteLine("Adding 1 lasagna, minus 150 coins(JESUS!)");
+                                    lasagna += 1;
+                                    coins -= 150;
+                                }
+                                if (bread_achivement)
+                                {
+                                    if ("flour" == buy_commands)
+                                    {
+                                        Console.WriteLine("Adding 200 grams flour, minus 8 coins");
+                                        flour += 200;
+                                        coins -= 8;
+                                    }
+                                    else if ("oil" == buy_commands)
+                                    {
+                                        Console.WriteLine("Adding 12 deciliters, minus 12 coins");
+                                        oil += 12;
+                                        coins -= 12;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cooking-game-csharp", "cooking-game-csharp.csproj", "{32BF420D-9D1E-4606-9135-193319A705C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cooking-game-csharp", "cooking-game-csharp.csproj", "{798A4510-1989-432C-8FFD-DC5B9173B95A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{32BF420D-9D1E-4606-9135-193319A705C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32BF420D-9D1E-4606-9135-193319A705C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32BF420D-9D1E-4606-9135-193319A705C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32BF420D-9D1E-4606-9135-193319A705C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{798A4510-1989-432C-8FFD-DC5B9173B95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{798A4510-1989-432C-8FFD-DC5B9173B95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{798A4510-1989-432C-8FFD-DC5B9173B95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{798A4510-1989-432C-8FFD-DC5B9173B95A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {675AADDE-70A0-47E2-819E-A6600EFBFA9C}
+		SolutionGuid = {DCA5A635-AB09-4CD8-B2CC-5AE9065BDE7D}
 	EndGlobalSection
 EndGlobal

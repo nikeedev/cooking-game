@@ -29,7 +29,7 @@ namespace cooking_game_csharp.codes
         public static void update() {
             Console.WriteLine("Update: Typos fixing");
             Console.WriteLine("");
-            Console.WriteLine("Version: v.0.6.4");
+            Console.WriteLine("Version: v"+cooking_game.VersionNow);
             Console.WriteLine("");
             Console.WriteLine("New:");
             Console.WriteLine("");
@@ -41,7 +41,7 @@ namespace cooking_game_csharp.codes
         }
 
         public static void clearConsole() {
-                Console.Clear();
+            Console.Clear();
         }
     }
 }

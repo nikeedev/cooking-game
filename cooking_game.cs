@@ -10,7 +10,7 @@ namespace cooking_game_csharp
 {
     class cooking_game {
 
-        public static string VersionNow = "0.6.4";
+        public static string VersionNow = "0.2.0";
 
         static void Main(string[] args)
         {

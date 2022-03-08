@@ -585,7 +585,7 @@ namespace cooking_game_csharp
                     Console.WriteLine("                          Exit");
                     string boosts_commands = Console.ReadLine();
 
-                    if ("list" == boost_commands) {
+                    if ("list" == boosts_commands) {
                         Console.WriteLine("Under Development");
                     }
 

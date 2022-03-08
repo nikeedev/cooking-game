@@ -576,8 +576,9 @@ namespace cooking_game_csharp
                 if ("boosts" == command) {
                     Functions.clearConsole();
                     Console.WriteLine("\n\nBoosts!");
+                    /*
                     Console.WriteLine(" Currently under construction! Come back later!");
-                    /*    
+                    */
                     Console.WriteLine("\n List of Boosts commands:");
                     Console.WriteLine("                          List");
                     Console.WriteLine("                          Buy");
@@ -585,7 +586,7 @@ namespace cooking_game_csharp
                     string boosts_commands = Console.ReadLine();
 
                     if ("list" == boost_commands) {
-                    
+                        Console.WriteLine("Under Development");
                     }
 
                     
@@ -593,19 +594,20 @@ namespace cooking_game_csharp
                     {
                         if ("buy" == boosts_commands) 
                         {
-                    
+                            Console.WriteLine("Under Development");
                         }
                     }
                     else if ("exit" == boosts_commands) 
                     {
-                            continue;
+                        Console.WriteLine("Exiting...");
+                        continue;
                     }
                     
                     else 
                     {
                         continue;
                     }
-                    */
+                    
                 }
 
                 else if ("info" == command)

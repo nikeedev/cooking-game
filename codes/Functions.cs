@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading;
-
+using System.Data;
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace cooking_game_csharp.codes
 {
@@ -40,8 +44,62 @@ namespace cooking_game_csharp.codes
             Console.WriteLine("");
         }
 
-        public static void clearConsole() {
+        public static void clearConsole() 
+        {
             Console.Clear();
         }
+
+        public static void save(string inventory) 
+        {
+            Console.WriteLine("Saving to file...");
+            Thread.Sleep(2000);
+            
+            string fileName = "Save_cooking_game.json"; 
+            string jsonString = JsonSerializer.Serialize(inventory);
+            File.WriteAllText(fileName, jsonString);
+        }
+
+        public static data load() {
+            Console.WriteLine("Saving to file...");
+            Thread.Sleep(2000);
+            
+            try {
+                string fileName = "Save_cooking_game.json"; 
+                string jsonString = File.ReadAllText(fileName);
+                data inventory = JsonSerializer.Deserialize<data>(jsonString)!;
+                return inventory;
+            } catch {
+                Console.WriteLine("No save found!");
+                return null;
+            }
+        }
     }
+    public class data {
+        public string username {get; set;}
+        public bool water_enough {get; set;}
+        public bool potato_enough {get; set;}
+        public bool carrot_enough {get; set;}
+        public bool meat_enough {get; set;}
+        public bool oil_enough {get; set;}
+        public bool flour_enough {get; set;}
+        public float coins {get; set;}
+        public float water {get; set;}  // deciliters
+        public float lasagna {get; set;}
+        public float baked_lasagna {get; set;}
+        public float potato {get; set;}  // grams
+        public float carrot {get; set;}  // 12 carrots
+        public float meat_packages {get; set;}  // going to be 20 meat packages
+        public bool meat_achivement {get; set;}
+        public float soup {get; set;}
+        public float soup_with_meat {get; set;}
+        public float bread {get; set;}
+        public float level {get; set;}
+        public float xp {get; set;}
+        public float xp_need {get; set;}
+        public float xp_rest {get; set;}
+        public bool bread_achivement {get; set;}
+        public float flour {get; set;}  // grams
+        public float oil {get; set;}  // deciliters
+    }
+
 }

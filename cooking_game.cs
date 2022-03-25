@@ -1,13 +1,18 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using System.Data;
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using cooking_game_csharp.codes;
 
 namespace cooking_game_csharp 
 {
+    
+
     class cooking_game {
 
         public static string VersionNow = "0.2.0";
@@ -17,36 +22,37 @@ namespace cooking_game_csharp
             Console.WriteLine("Loading all needed things, please wait patient :)");
             Console.WriteLine("...");
 
-
-
-            string username = "";
-            bool water_enough = false;
-            bool potato_enough = false;
-            bool carrot_enough = false;
-            bool meat_enough = false;
-            bool  oil_enough = false;
-            bool flour_enough = false;
             bool use_username = true;
-            float coins = 0;
-            float water = 120;  // deciliters
-            float lasagna = 0;
-            float baked_lasagna = 0;
-            float potato = 1000;  // grams
-            float carrot = 12;  // 12 carrots
-            float meat_packages = 0;  // going to be 20 meat packages
-            bool meat_achivement = false;
-            float soup = 0;
-            float soup_with_meat = 0;
-            float bread = 0;
-            float level = 0;
-            float xp = 0;
-            float xp_need = 100;
-            float xp_rest = 0;
-            bool bread_achivement = false;
-            float flour = 5000;  // grams
-            float oil = 100;  // deciliters
             bool running = true;
-            
+
+            var inventory = new data {
+                username = "",
+                water_enough = false,
+                potato_enough = false,
+                carrot_enough = false,
+                meat_enough = false,
+                oil_enough = false,
+                flour_enough = false,
+                coins = 0,
+                water = 120,  // deciliters
+                lasagna = 0,
+                baked_lasagna = 0,
+                potato = 1000,  // grams
+                carrot = 12,  // 12 carrots
+                meat_packages = 0,  // going to be 20 meat packages
+                meat_achivement = false,
+                soup = 0,
+                soup_with_meat = 0,
+                bread = 0,
+                level = 0,
+                xp = 0,
+                xp_need = 100,
+                xp_rest = 0,
+                bread_achivement = false,
+                flour = 5000,  // grams
+                oil = 100,  // deciliters
+            };
+
             Thread.Sleep(2000);
 
 
@@ -56,21 +62,21 @@ namespace cooking_game_csharp
             while (use_username) {
                 Console.WriteLine("\nWhat is your name or in this case nickname?");
                 Console.Write("My nickname is... ");
-                username = Console.ReadLine();
+                inventory.username = Console.ReadLine();
                 Console.Write("\n\nDo you want to use this username(write 1), PC username(write 2), or change this username(write 3)? ");
                 string agree = Console.ReadLine();
                 if (agree == "1") {
                     use_username = false;
                 }
                 else if (agree == "2") {
-                    username = Environment.UserName;
+                    inventory.username = Environment.UserName;
                     use_username = false;
                 }
                 else if (agree == "3") {
                     continue;
                 }
             }
-            Console.WriteLine($"Hello {username}. Nice, now can we begin to cook!");
+            Console.WriteLine($"Hello {inventory.username}. Nice, now can we begin to cook!");
             Console.ReadKey();
             Console.WriteLine("Okay, We're ready!");
             Console.WriteLine("press Enter to continue...");
@@ -87,56 +93,56 @@ namespace cooking_game_csharp
             Console.ReadKey();
 
             while (running) {
-                if (xp == 2) {
+                if (inventory.xp == 2) {
                     Console.WriteLine("You achieved 'Bread Achivement'! You can now make bread!");
-                    bread_achivement = true;
+                    inventory.bread_achivement = true;
                 }
-                if (xp >= xp_need) {
-                    xp_rest -= xp_need;
-                    xp = xp_rest;
-                    level += 1;
-                    xp_rest = 0;
-                    xp_need *= 1.15f;
+                if (inventory.xp >= inventory.xp_need) {
+                    inventory.xp_rest -= inventory.xp_need;
+                    inventory.xp = inventory.xp_rest;
+                    inventory.level += 1;
+                    inventory.xp_rest = 0;
+                    inventory.xp_need *= 1.15f;
                     Console.WriteLine("");
-                    Console.WriteLine($"- New level achieved! - Level {level}, XP {xp} / {xp_need}");
+                    Console.WriteLine($"- New level achieved! - Level {inventory.level}, XP {inventory.xp} / {inventory.xp_need}");
                 }
-                if (water < 0) {
-                    water = 0;
+                if (inventory.water < 0) {
+                    inventory.water = 0;
                 }
-                if (potato < 0) {
-                    potato = 0;
+                if (inventory.potato < 0) {
+                    inventory.potato = 0;
                 }
-                if (carrot < 0) {
-                    carrot = 0;
+                if (inventory.carrot < 0) {
+                    inventory.carrot = 0;
                 }
-                if (coins < 0) {
-                    coins = 0;
+                if (inventory.coins < 0) {
+                    inventory.coins = 0;
                 }
-                if (flour < 0) {
-                    flour = 0;
+                if (inventory.flour < 0) {
+                    inventory.flour = 0;
                 }
-                if (oil < 0) {
-                    oil = 0;
+                if (inventory.oil < 0) {
+                    inventory.oil = 0;
                 }
-                if (meat_packages < 0) {
-                    meat_packages = 0;
+                if (inventory.meat_packages < 0) {
+                    inventory.meat_packages = 0;
                 }
-                if (!meat_achivement) {
-                    if (soup == 2) {
+                if (!inventory.meat_achivement) {
+                    if (inventory.soup == 2) {
                         Console.WriteLine("");
                         Console.WriteLine("");
                         Console.WriteLine("");
-                        meat_achivement = true;
+                        inventory.meat_achivement = true;
                         Console.WriteLine(
                             "You got Meat achievement, which means you can have meat in inventory, and you're able to make new Soup type!");
-                        meat_packages += 20;
+                        inventory.meat_packages += 20;
                         Console.WriteLine("");
                         Console.WriteLine("");
                         Console.WriteLine("");
                     }
                 }
                 Console.WriteLine("");
-                Console.WriteLine("Hello+ "  + username + "! What do you want to do now?");
+                Console.WriteLine("Hello+ "  + inventory.username + "! What do you want to do now?");
                 Console.WriteLine("List of Commands:      ");
                 Console.WriteLine("                   Recipes ( Write 'recipe' ) ");
                 Console.WriteLine("                   Inventory ( Write 'inventory' )");
@@ -158,14 +164,14 @@ namespace cooking_game_csharp
                     Console.WriteLine("                         Potato: 200 grams");
                     Console.WriteLine("                         Carrots: 3");
                     Console.WriteLine("                         ");
-                    if (meat_achivement) {
+                    if (inventory.meat_achivement) {
                         Console.WriteLine("                   Soup With Meatballs:");
                         Console.WriteLine("                         Water: 12 Deciliters");
                         Console.WriteLine("                         Potato: 200 grams");
                         Console.WriteLine("                         Carrots: 3");
                         Console.WriteLine("                         Meat Packages: 2");
                     }
-                    if (bread_achivement) {
+                    if (inventory.bread_achivement) {
                         Console.WriteLine("                   Bread:");
                         Console.WriteLine("                         Water: 5 Deciliters");
                         Console.WriteLine("                         Flour: 2 Deciliters");
@@ -174,19 +180,19 @@ namespace cooking_game_csharp
                 }
                 if ("inventory" == command) {
                     Functions.clearConsole();
-                    Console.WriteLine("                   You have " + water + " deciliters of water");
-                    Console.WriteLine("                   You have "+ potato + " grams of potato");
-                    Console.WriteLine("                   You have "+ carrot + " carrots");
-                    Console.WriteLine("                   You have "+ soup + " soup");
-                    if (meat_achivement) {
-                        Console.WriteLine("                   You have " + meat_packages + "meat packages");
-                        Console.WriteLine("                   You have " + soup_with_meat + "soup with meatballs");
+                    Console.WriteLine("                   You have " + inventory.water + " deciliters of water");
+                    Console.WriteLine("                   You have "+ inventory.potato + " grams of potato");
+                    Console.WriteLine("                   You have "+ inventory.carrot + " carrots");
+                    Console.WriteLine("                   You have "+ inventory.soup + " soup");
+                    if (inventory.meat_achivement) {
+                        Console.WriteLine("                   You have " + inventory.meat_packages + "meat packages");
+                        Console.WriteLine("                   You have " + inventory.soup_with_meat + "soup with meatballs");
                     }
-                    if (bread_achivement) {
-                        Console.WriteLine("                         You have" + water + " deciliters of water");
-                        Console.WriteLine("                         You have" + flour + " deciliters of flour");
-                        Console.WriteLine("                         You have " + oil + " deciliters of oil");
-                        Console.WriteLine("                         You have " + bread + " bread");
+                    if (inventory.bread_achivement) {
+                        Console.WriteLine("                         You have" + inventory.water + " deciliters of water");
+                        Console.WriteLine("                         You have" + inventory.flour + " deciliters of flour");
+                        Console.WriteLine("                         You have " + inventory.oil + " deciliters of oil");
+                        Console.WriteLine("                         You have " + inventory.bread + " bread");
                     }
                     Console.WriteLine("                   You have " + lasagna + "lasagna's");
                     Console.WriteLine("                   You have " + baked_lasagna + "baked lasagna's\n");

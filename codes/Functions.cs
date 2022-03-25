@@ -16,30 +16,30 @@ namespace cooking_game_csharp.codes
             Console.WriteLine("Made by nikeedev(Nikita)");
             Console.WriteLine("Copyright ©2022");
             Console.WriteLine("This game is made completely by hand, and no tutorials have been used.");
-            Console.WriteLine("Game code can be changed, but without asking owner(nikeedev),");
-            Console.WriteLine("you are not following rules and may cause in problems.");
+            Console.WriteLine("Game code can be changed, but doing that may cause in problems in the game.",
+                "\nIf it is a bug, error or issue please report via Issues link on README.md file.");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine("Contact me here:");
-            Console.WriteLine("Discord(Spamming me causes to block you from support): nikeedev#8874");
+            Console.WriteLine("Discord(Spamming me, will cause you to be blocked from support): nikeedev#8874");
             Console.WriteLine("Github: nikeedev(Use issue report function in repo)");
             Console.WriteLine("");
         }
 
 
         public static void update() {
-            Console.WriteLine("Update: Typos fixing");
+            Console.WriteLine("Update: Saving and Loading Update");
             Console.WriteLine("");
             Console.WriteLine("Version: v"+cooking_game.VersionNow);
             Console.WriteLine("");
             Console.WriteLine("New:");
             Console.WriteLine("");
-            Console.WriteLine("Fixed typos, and words to make it easier for you to read!");
-            Console.WriteLine(" (^^^^^^^ that wasn't small sentence!) ");
+            Console.WriteLine("Added finally saving function and laoding function! Save is saved in a .json file.");
             Console.WriteLine("");
+            Console.WriteLine("Also fixed some stuff there and there, and now they're fixed");
             Console.WriteLine("");
             Console.WriteLine("");
         }
@@ -49,22 +49,22 @@ namespace cooking_game_csharp.codes
             Console.Clear();
         }
 
-        public static void save(string inventory) 
+        public static void save(data inventory) 
         {
             Console.WriteLine("Saving to file...");
             Thread.Sleep(2000);
             
-            string fileName = "Save_cooking_game.json"; 
+            string fileName = "save_cooking_game.json"; 
             string jsonString = JsonSerializer.Serialize(inventory);
             File.WriteAllText(fileName, jsonString);
         }
 
         public static data load() {
-            Console.WriteLine("Saving to file...");
+            Console.WriteLine("Loading from file...");
             Thread.Sleep(2000);
             
             try {
-                string fileName = "Save_cooking_game.json"; 
+                string fileName = "save_cooking_game.json"; 
                 string jsonString = File.ReadAllText(fileName);
                 data inventory = JsonSerializer.Deserialize<data>(jsonString)!;
                 return inventory;

@@ -1,6 +1,6 @@
 ## Cooking game C# Edition
 
-# About:
+# About archiving the repo:
 
 After 1 year development of the game, i first made the game using python at this link: https://github.com/nikeedev/cooking-game-csharp/. After seeing how idea and game grew, i decided to make C# version of it which lies in current repo. The game won't be updated any more, as well as the python version. 
 

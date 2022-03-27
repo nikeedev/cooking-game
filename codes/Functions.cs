@@ -17,15 +17,15 @@ namespace cooking_game_csharp.codes
             Console.WriteLine("Copyright ©2022");
             Console.WriteLine("This game is made completely by hand, and no tutorials have been used.");
             Console.WriteLine("Game code can be changed, but doing that may cause in problems in the game.",
-                "\nIf it is a bug, error or issue please report via Issues link on README.md file.");
+                "\nIf you step upon a bug, error or just a issue, please report it via GitHub Issues link on README.md file.");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine("Contact me here:");
-            Console.WriteLine("Discord(Spamming me, will cause you to be blocked from support): nikeedev#8874");
-            Console.WriteLine("Github: nikeedev(Use issue report function in repo)");
+            Console.WriteLine("Discord(Spamming me, will cause you to be blocked from my support): nikeedev#8874");
+            Console.WriteLine("Github: nikeedev(Use disscuison function on repo to contact me)");
             Console.WriteLine("");
         }
 
@@ -69,8 +69,10 @@ namespace cooking_game_csharp.codes
                 data inventory = JsonSerializer.Deserialize<data>(jsonString)!;
                 return inventory;
             } catch {
-                Console.WriteLine("No save found!");
-                return null;
+                Console.WriteLine("No save found! " +
+                    "Creating new save file, and saving it");
+                save(cooking_game.inventory);
+                return cooking_game.inventory;
             }
         }
     }

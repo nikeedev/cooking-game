@@ -6,4 +6,6 @@
     <RootNamespace>cooking_game_csharp</RootNamespace>
   </PropertyGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties save_3cooking_3game_1json__JsonSchema="https://json-schema.org/draft/2020-12/schema" /></VisualStudio></ProjectExtensions>
+
 </Project>

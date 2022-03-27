@@ -9,7 +9,7 @@ namespace cooking_game_csharp
     class cooking_game
     {
 
-        public static string VersionNow = "0.7.0";
+        public static string VersionNow = "0.7.0-alpha";
 
 
         public static data inventory = new data

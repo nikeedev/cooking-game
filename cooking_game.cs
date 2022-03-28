@@ -9,7 +9,7 @@ namespace cooking_game_csharp
     class cooking_game
     {
 
-        public static string VersionNow = "0.7.0-alpha";
+        public static string VersionNow = "0.7.1-alpha";
 
 
         public static data inventory = new data
@@ -49,7 +49,7 @@ namespace cooking_game_csharp
             bool use_username = true;
             bool running = true;
 
-            Console.Title = "                                                                           Cooking Game";
+            Console.Title = $"                                                                           Cooking Game   {cooking_game.VersionNow}     ";
             
 
             Thread.Sleep(2000);
@@ -158,18 +158,19 @@ namespace cooking_game_csharp
                 Console.WriteLine("");
                 Console.WriteLine("Hello " + inventory.username + "! What do you want to do now?");
                 Console.WriteLine("List of Commands:      ");
-                Console.WriteLine("                   Recipes ( Write 'recipe' ) ");
-                Console.WriteLine("                   Inventory ( Write 'inventory' )");
+                Console.WriteLine("                   Recipes, shows all your available recipes ( Write 'recipes' ) ");
+                Console.WriteLine("                   Inventory, shows your available ingredients and your level/XP ( Write 'inventory' )");
                 Console.WriteLine("                   Make something ( Write 'make something' )");
-                Console.WriteLine("                   Market(Sell and Buy food) ( Write 'market' )");
-                Console.WriteLine("                   Boosts (Buy and list your boosts!) ( Write 'boosts' )");
+                Console.WriteLine("                   Market (Sell and buy food) ( Write 'market' )");
                 Console.WriteLine("                   Info ( Write 'info' )");
                 Console.WriteLine("                   Update Log ( Write 'update' or 'log' )");
+                Console.WriteLine("                   Load, loads you available JSON save file ( Write 'load' ) ");
+                Console.WriteLine("                   Save, wipes out available JSON save file, and saves there ( you will be asked to confirm wipe out) ( Write 'save' )");
                 Console.WriteLine("                   Exit ( Write 'exit' ) ");
                 Console.WriteLine("                   ");
                 string command = Console.ReadLine();
 
-                if ("recipe" == command.ToLower().Trim())
+                if ("recipes" == command.ToLower().Trim())
                 {
                     Functions.clearConsole();
                     Console.WriteLine("                   Current Recipes: ");
@@ -444,11 +445,8 @@ namespace cooking_game_csharp
                 {
                     Functions.clearConsole();
                     Console.WriteLine("Welcome to The Market!");
-                    Thread.Sleep(2000);
                     Console.WriteLine("Here, can you buy and sell things, such like food.");
-                    Thread.Sleep(3000);
                     Console.WriteLine("And here it is!");
-                    Thread.Sleep(2000);
                     Console.WriteLine("List of Market commands:");
                     Console.WriteLine("                          Sell");
                     Console.WriteLine("                          Buy");
@@ -641,45 +639,7 @@ namespace cooking_game_csharp
                 }
 
 
-                if ("boosts" == command.ToLower().Trim())
-                {
-                    Functions.clearConsole();
-                    Console.WriteLine("\n\nBoosts!");
-                    /*
-                    Console.WriteLine(" Currently under construction! Come back later!");
-                    */
-                    Console.WriteLine("\n List of Boosts commands:");
-                    Console.WriteLine("                          List");
-                    Console.WriteLine("                          Buy");
-                    Console.WriteLine("                          Exit");
-                    string boosts_commands = Console.ReadLine();
-
-                    if ("list" == boosts_commands.ToLower().Trim())
-                    {
-                        Console.WriteLine("Under Development");
-                    }
-
-
-                    if (inventory.coins != 0)
-                    {
-                        if ("buy" == boosts_commands.ToLower().Trim())
-                        {
-                            Console.WriteLine("Under Development");
-                        }
-                    }
-                    else if ("exit" == boosts_commands.ToLower().Trim())
-                    {
-                        Console.WriteLine("Exiting...");
-                        continue;
-                    }
-
-                    else
-                    {
-                        Console.WriteLine("Under Development");
-                        continue;
-                    }
-
-                }
+            
 
                 else if ("info" == command.ToLower().Trim())
                 {

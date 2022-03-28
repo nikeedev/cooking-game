@@ -51,7 +51,7 @@ namespace cooking_game_csharp.codes
 
         public static void save(data inventory) 
         {
-            Console.WriteLine("Saving to file...");
+            Console.WriteLine("\n\nSaving to file...");
             Thread.Sleep(2000);
             
             string fileName = "save_cooking_game.json"; 
@@ -60,7 +60,7 @@ namespace cooking_game_csharp.codes
         }
 
         public static data load() {
-            Console.WriteLine("Loading from file...");
+            Console.WriteLine("\n\nLoading from file...");
             Thread.Sleep(2000);
             
             try {

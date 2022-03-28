@@ -49,29 +49,29 @@ namespace cooking_game_csharp.codes
             Console.Clear();
         }
 
-        public static void save(data inventory) 
+        public static void save() 
         {
             Console.WriteLine("\n\nSaving to file...");
             Thread.Sleep(2000);
             
             string fileName = "save_cooking_game.json"; 
-            string jsonString = JsonSerializer.Serialize(inventory);
+            string jsonString = JsonSerializer.Serialize(cooking_game.inventory);
             File.WriteAllText(fileName, jsonString);
         }
 
         public static data load() {
             Console.WriteLine("\n\nLoading from file...");
+            string fileName = "save_cooking_game.json";
             Thread.Sleep(2000);
-            
-            try {
-                string fileName = "save_cooking_game.json"; 
+
+            if (File.Exists(fileName)) { 
                 string jsonString = File.ReadAllText(fileName);
                 data inventory = JsonSerializer.Deserialize<data>(jsonString)!;
                 return inventory;
-            } catch {
+            } else {
                 Console.WriteLine("No save found! " +
                     "Creating new save file, and saving it");
-                save(cooking_game.inventory);
+                save();
                 return cooking_game.inventory;
             }
         }

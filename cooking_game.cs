@@ -233,11 +233,11 @@ namespace cooking_game_csharp
                     {
                         Console.WriteLine("                   Soup With Meatballs");
                     }
-                    else if (inventory.lasagna >= 1)
+                    if (inventory.lasagna >= 1)
                     {
                         Console.WriteLine("                   Lasagna");
                     }
-                    else if (inventory.bread_achivement)
+                    if (inventory.bread_achivement)
                     {
                         Console.WriteLine("                   Bread");
                     }

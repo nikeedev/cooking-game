@@ -51,7 +51,7 @@ namespace cooking_game_csharp.codes
 
         public static void save() 
         {
-            Console.WriteLine("\n\nSaving to file...");
+            
             Thread.Sleep(2000);
             
             string fileName = "save_cooking_game.json"; 
@@ -68,9 +68,11 @@ namespace cooking_game_csharp.codes
                 string jsonString = File.ReadAllText(fileName);
                 data inventory = JsonSerializer.Deserialize<data>(jsonString)!;
                 return inventory;
-            } else {
+            } 
+            else {
                 Console.WriteLine("No save found! " +
                     "Creating new save file, and saving it");
+                Console.WriteLine("\n\nSaving to file...");
                 save();
                 return cooking_game.inventory;
             }
@@ -102,6 +104,8 @@ namespace cooking_game_csharp.codes
         public bool bread_achivement {get; set;}
         public float flour {get; set;}  // grams
         public float oil {get; set;}  // deciliters
+        public float salt {get; set;} // grams
+        public float pepper {get; set;} // grams
     }
 
 }

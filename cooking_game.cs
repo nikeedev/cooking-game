@@ -40,6 +40,8 @@ namespace cooking_game_csharp
             bread_achivement = false,
             flour = 5000,  // grams
             oil = 100,  // deciliters
+            salt = 100, // grams
+            pepper = 100 // grams
         };
 
         static void Main(string[] args)
@@ -74,15 +76,13 @@ namespace cooking_game_csharp
                     }
                 }
                 Console.WriteLine($"Hello {inventory.username}. Nice, now can we begin to cook!");
-                Console.ReadKey();
-                Console.WriteLine("Okay, We're ready!");
                 Console.WriteLine("press Enter to continue...");
                 Console.ReadKey();
-                Console.WriteLine("Lets begin with making some soup!");
+                Console.WriteLine("Let's begin with making some soup!");
                 Console.WriteLine("press Enter to continue...");
                 Console.ReadKey();
                 Console.WriteLine(
-                    "In this game you have desired values of ingredients in recipes, meaning that you can't make very much food, if you dont have enough ingredients.");
+                    "In this game you have desired values of ingredients in recipes, meaning that you can't make very much food, when you go out of ingredients.");
                 Console.WriteLine("press Enter to continue...");
                 Console.ReadKey();
                 Console.WriteLine("But we should have it enough to make some Soup!");
@@ -90,23 +90,25 @@ namespace cooking_game_csharp
                 Console.ReadKey();
             }
 
-            Console.Title = $"                                                                                                                      Cooking Game   {cooking_game.VersionNow}     ";
+            Console.Title = $"                                                                                                                     Cooking Game   {cooking_game.VersionNow}     ";
             
 
             Thread.Sleep(2000);
 
 
 
-            Console.WriteLine("Hello and welcome to Cooking Game! v" + VersionNow + "! New: Typo Fixing (more info in 'log' command)");
+            Console.WriteLine("Hello and welcome to Cooking Game v" + VersionNow + "! New: Save and Loadind update! (more info in 'log' command)");
             Console.WriteLine("press Enter to continue...");
             Console.ReadKey();
+            Console.WriteLine("");
             if (File.Exists("save_cooking_game.json")) 
             {
                 Console.WriteLine("A save file has been found. Do you want to load it instead of creating new user (y/yes or n/no)? ");
                 string fileAnswer = Console.ReadLine();
                 if ("y" == fileAnswer.ToLower().Trim() || "yes" == fileAnswer.ToLower().Trim()) {
                     Functions.load();
-                } else if ("n" == fileAnswer.ToLower().Trim() || "no" == fileAnswer.ToLower().Trim()) {
+                } 
+                else if ("n" == fileAnswer.ToLower().Trim() || "no" == fileAnswer.ToLower().Trim()) {
                     CreateUser();
                 }
             } else {
@@ -681,6 +683,7 @@ namespace cooking_game_csharp
 
                     if (saveyesno.ToLower().Trim() == "y" || saveyesno.ToLower().Trim() == "yes")
                     {
+                        Console.WriteLine("\n\nSaving to file...");
                         Functions.save();
                     }
                 }

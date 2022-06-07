@@ -1,4 +1,4 @@
-## Cooking game C# Edition
+## Cooking game C#
 
 
 

@@ -20,5 +20,5 @@ Clone the repo to your desired place or download code from GitHub(basically here
 
 # Additional info:
 
-Use https://github.com/nikeedev/cooking-game-csharp/issues to send issues, bugs and problems you find inside the game.
-Use also https://github.com/nikeedev/cooking-game-csharp/discussions for ideas and such.
+Use https://github.com/nikeedev/cooking-game/issues to send issues, bugs and problems you find inside the game.
+Use also https://github.com/nikeedev/cooking-game/discussions for ideas and such.

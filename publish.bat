@@ -1,1 +1,1 @@
-git add * && git commit -m "Updates for Cooking Game C# Edition!" && git pull && git push
+git add * && git commit -m "Updates for Cooking Game!" && git pull && git push
